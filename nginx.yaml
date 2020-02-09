@@ -1,0 +1,29 @@
+- hosts: webservers
+  remote_user: root
+  gather_facts: false
+  vars:
+        http_port: 80
+        domain: "www.ldy.com"
+  tasks:
+  - name: start nginx
+    systemd: name=nginx state=started enabled=yes
+  - debug: var=http_port
+  - name:
+    shell: |
+        echo 123
+    register: result
+    tags: reg
+  - debug: msg={{result}}
+    tags: reg
+    when: result.stdout == '123'
+  - debug: msg={{group_names}}
+ 
+  - name: copy file
+    copy: src={{ item }} dest=/mnt
+    with_fileglob:
+         - "/tmp/*.html"
+    tags: touchfile
+
+  - name: create virtualhost
+    template: src=config/nginx.conf dest=/etc/nginx/conf.d
+    tags: nginx
