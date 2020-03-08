@@ -1,0 +1,7 @@
+修改了文件以后上传到服务器呢执行以下命令：
+在“添写修改后的文件”
+ git commit -m "duanzi.py"
+然后执行
+git push origin master
+即可
+

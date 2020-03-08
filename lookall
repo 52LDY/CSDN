@@ -7,7 +7,7 @@ ls
 cd CSDN/
 ls
 ssh-keygen -t rsa -C "1713285328@qq.com 第一次需要生成公钥然后去git官网的settingg选择SSH and GPG keys 然后新建New SSH key 
-
+                       git commit -m "duanzi.py"
 [root@liudongyi CSDN]# git push -u origin master
 Username for 'https://github.com': liudongyi
 Password for 'https://liudongyi@github.com': 
